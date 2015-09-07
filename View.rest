@@ -1,0 +1,490 @@
+View dari model dibentuk dari kumpulan element xml. tiap element memiliki attribute
+dan value attribute untuk mengatur tampilan dari sebuah element. Setiap element
+memiliki kegunaan sendiri-sendiri.
+
+==========
+Jenis Element
+==========
+
+Element xml untuk view dikelompokkan menjadi dua macam, yaitu:
+
+- **Element Body**
+    Element parent yang merupakan jenis dari model view.
+- **Element Komponen**
+    Element yang digunakan umum seperti label, image, dan lain-lain.
+- **Element Layout**
+    Element yang digunakan untuk layouting.
+
+Body
+------
+
+- **form**
+    Untuk view bertipe form
+
+- **tree**
+    Untuk view bertipe list
+
+- **kanban**
+    Untuk view bertipe kanban
+
+    Isi dari kanban view bisa di custom menggunakan HTML view.
+    Kanban view ini menggunakan template engine "Apache Velocity".
+    Untuk membuat tampilan kanban harus dibungkus menggunakan.
+
+    ```xml
+        <template>
+            <![CDATA[
+                ...
+            ]]>
+        </template>
+    ```
+
+    Contoh membuat kanban view:
+    ```xml
+        <kanban string="Room Monitor">
+            <template class="oe_kanban_global_click">
+                <![CDATA[
+                #if($room_type_id==2)
+                    #set( $bg = "e3e3e3" )
+                #elseif($room_type_id==3)
+                    #set( $bg = "CDBE70" )
+                #end
+
+                <style>
+                    .3p-monitor-item{
+                        border: 1px solid #494949;"
+                    }
+                </style>
+
+                <div class="3p-monitor-item" style="width: 75px;padding: 10px;background-color:#$bg ;">
+                    #set( $height = "40px" )
+                    #if( $room_status == 1  )
+                        <div style="width:100%;height:$height;text-align: center;" ><img style="max-height: 100%;max-width: 100%;" src="http://findicons.com/files/icons/1609/ose_png/256/error.png"></div>
+                    #elseif( $room_status == 2  )
+                        <div style="width:100%;height:$height;background-color:yellow" ></div>
+                    #else
+                        <div style="width:100%;height:$height" ></div>
+                    #end
+                    <div style="text-align:center">
+                        <div class="bold" style="font-size:20px;  margin: 10px 0px 0px;"> $name </div>
+                    </div>
+
+                    <button name="fo_reservation_action" onclick="efitrac.globalFunction.action(this.name)" style="float:lefts;visibility:hiddens">CLICK ME</button>
+                    <button name="fo_roommonitor_open_action" onclick="efitrac.globalFunction.window(this.name)" style="float:lefts;visibility:hiddens">KICK ME</button>
+                </div>
+                ]]>
+            </template>
+        </kanban>
+    ```
+
+    Pada kanban view, jika terdapat button yang memerlukan komunikasi ke server, bisa menggunakan ``efitrac.globalFunction.xxx(this.name)`` pada onclick event, dan name button tersebut harus diisi id dari sebuah action.act_window.
+
+    - ``efitrac.globalFunction.action(this.name)``: ketika button ditekan, akan pindah page ke page tujuan.
+    - ``efitrac.globalFunction.window(this.name)``: ketika button ditekan, page tujuan akan ditampilkan dengan popup window.
+
+
+    Pada tag ``template`` terdapat ``class="oe_kanban_global_click`` ini gunanya untuk membuat default klik item kanban sesuai dengan button yang didefine pertama kali.
+
+Komponen
+------
+
+- **label**
+    ```xml
+        <label id="label1"/>
+    ```
+    Komponen yang digunakan untuk menampilkan text.
+
+- **button**
+    ```xml
+        <button id="button1" />
+    ```
+    Komponen yang digunakan untuk membuat sebuah tombol.
+
+- **link**
+    ```xml
+        <link id="link1" />
+    ```
+    Komponen yang digunakan untuk menampilkan link text.
+
+- **datetime**
+    ```xml
+        <datetime id="datetime1" />
+    ```
+    Komponen yang digunakan untuk membuat sebuah datetime. By default berisi
+    tanggal hari ini.
+
+- **image**
+    ```xml
+        <image id="image1" />
+    ```
+    Komponen yang digunakan untuk menampilkan sebuah gambar.
+
+- **location**
+    ```xml
+        <location id="location1" />
+    ```
+    Komponen yang digunakan untuk menampilkan lokasi pada sebuah map.
+
+- **field**
+    ```xml
+     <field name="Total"/>
+    ```
+    Komponen yang merupakan *representasi* dari sebuah kolom pada table.
+    Komponen field harus memiliki attribute ``name`` sebagai key *representatif*.
+    Komponen field ini akan berubah bentuk sesuai dengan tipe data dari
+    masing-masing kolomn.
+
+    ```xml
+     <field name="barang">
+        <tproperty name="kategori_produk" />
+        <tproperty name="produk" />
+        <tproperty name="qty" />
+        <tproperty name="harga" />
+        <tproperty name="satuan" />
+        <tproperty name="subtotal" />
+    </field>
+    ```
+
+    Untuk field yang merupakan *representasi* dari sebuah nested/table atau
+    field *ManyToMany*, di dalam tag ``field`` harus memiliki tag ``<tproperty />``
+    untuk mendefinisikan kolom mana pada table yang akan ditampilkan.
+    Pada komponen ``<tproperty />`` harus memiliki attribute ``name`` sebagai
+    kolom key *representatif*.
+
+Layout
+----------
+
+- **verticallayout**
+    ```xml
+        <verticallayout>
+            ...
+        </verticallayout>
+    ```
+    verticallayout adalah wadah komponen, untuk menampilkan subkomponen sesuai dengan urutan penambahan secara vertikal.
+
+    .. image:: /images/verticalLayout.gif
+
+- **horizontallayout**
+    ```xml
+        <horizontallayout>
+            ...
+        </horizontallayout>
+    ```
+    horizontallayout adalah wadah komponen, untuk menampilkan subkomponen sesuai dengan urutan penambahan secara horizontal.
+
+    .. image:: /images/horizontalLayout.gif
+
+- **formlayout**
+    ```xml
+        <formlayout>
+            ...
+        </formlayout>
+    ```
+    formlayout digunakan sebagai kontainer form untuk mengatur letak field. formlayout mirip seperti verticallayout, tetapi dalam formlayout caption/judul
+    ditampilkan di sebelah kiri masing-masing komponen. formlayout secara default memiliki spacing, margin atas, dan margin bawah pada masing-masing komponen
+    field di dalamnya.
+
+    .. image:: /formlayout.PNG
+
+- **csslayout**
+    ```xml
+        <horizontallayout>
+            ...
+        </horizontallayout>
+    ```
+    csslayout adalah layout komponen yang digunakan untuk mengatur letak field
+    secara custom dengan menggunakan css. Perbedaan dari horizontallayout atau
+    verticallayout adalah no spacing, alignment or expand ratios.
+
+- **header**
+    ```xml
+        <header/>
+    ```
+    layout header dari view sebuah model form (hanya bisa dipakai pada view bertype form).
+
+- **navigation**
+    ```xml
+        <navigation />
+    ```
+    layout navigation dari view sebuah model yang berada pada header yang khusus mengatur navigation.
+
+- **sheet**
+    ```xml
+        <sheet />
+    ```
+    layout sheet digunakan untuk menampilkan view berbentuk sheet (hanya bisa dipakai pada view bertype form).
+
+- **tabs**
+
+    Layout yang digunakan untuk mebuat sebuah tabs page.
+    ```xml
+        <tabs>
+            <tab-page caption="Order Lines">
+               ....
+            </tab-page>
+            <tab-page caption="Other Information">
+               ....
+            </tab-page>
+        <tabs/>
+
+    ```
+
+   Sebuah tag ``tabs`` memiliki tag ``<tab-page />`` untuk membuat sebuah halaman tab. Di dalam komponen tab dapat diisi dengan komponen atau layout lainya.
+
+========
+Attribute
+========
+
+Setiap element mempunyai daftar attribute yang dimiliki. Attribute element dikelompokkan menjadi beberapa macam, yaitu:
+
+- **Body Attribute**
+    Attribute yang dipunyai oleh element body saja
+- **Common Attribute**
+    Attribute yang dipunyai oleh semua element
+- **Komponen Attribute**
+    Attribute yang dimiliki komponen saja
+- **Layout Attribute**
+    Attribute yang dimiliki layout saja
+- **Field Attribute**
+    Attribute yang hanya dipunyai oleh komponen field
+- **Widget Attribute**
+    Attribute khusus yang berhubungan dengan Field Attribute
+- **Other Attribute**
+    Attribute lainnya
+
+Contoh penggunaan attribute
+    ```xml
+        <button value="Submit" type="primary" size="tiny" />
+    ```
+
+Pada contoh diatas komponen button memilik 3 attribute, yaitu: value, type,
+dan size
+
+
+Body Attribute
+------
+
+
+- ``string``
+    ```xml
+    <form string="Sales Order"/>
+    ```
+    Memberi caption untuk layout
+
+- ``create``
+    ```xml
+    <tree create="true"/>
+    ```
+    ???
+
+Common Attribute
+------
+
+Attribute yang berada pada kelompok *Common* **tidak harus** ditulis atau diset.
+Untuk beberapa attribute telah mempunyai nilai awal. Berikut
+adalah attribute-attribute yang masuk ke dalam kelompon *Common*,
+
+- ``id``
+    ```xml
+    <button id="submit"/>
+    ```
+    Attribute ini digunakan untuk memberikan *unique* id pada element. ID
+    tersebut nantinya dapat digunakan untuk mengakses element bersangkutan.
+
+- ``icon``
+    ```xml
+    <button icon="SEARCH"/>
+    ```
+    Attribute ini digunakan untuk memberikan icon pada element yang sudah
+    disediakan. Icon yang disediakan menggunakan icon `Font Awesome`_.
+
+    .. _`Font Awesome`: http://fortawesome.github.io/Font-Awesome/icons/
+
+- ``icon-url``
+    ```xml
+    <button icon-url="http://url_icon_here"/>
+    ```
+    Attribute ini digunakan untuk memberikan icon pada element sesuai dengan
+    url_icon_here yang diinputkan.
+
+- ``string``
+    ```xml
+    <button string="Cari Sekarang"/>
+    ```
+    Attribute ini digunakan untuk memberikan caption pada element.
+
+- ``invisible``
+    ```xml
+    <button invisible="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur visibility element.
+
+- ``visible (DEPRECATED)``
+    ```xml
+    <button visible="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur visibility element.
+    Untuk mengubah visibility element, gunakan attribute ``invisible``
+
+- ``disabled``
+    ```xml
+    <button disabled="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini menunjukan bahwa element ``field``
+    tidak bisa diedit datanya.
+
+- ``width``
+    ```xml
+    <button width="100%"/>
+    ```
+    Bernilai ``%`` , ``px`` , atau ``undefined``. Attribute ini mengatur width dari sebuah element.
+
+- ``height``
+    ```xml
+    <button height="100px"/>
+    ```
+    Bernilai ``%`` , ``px`` , atau ``undefined``. Attribute ini mengatur height dari sebuah element.
+
+- ``sizefull``
+    ```xml
+    <button sizefull="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur lebar dan tinggi
+    sebuah komponen sesuai dengan containernya.
+
+- ``style``
+    ```xml
+    <button style="pull-right"/>
+    ```
+    Attribute ini digunakan untuk menambah class css. Class css tersebut dapat
+    dilihat pada . . . . . berikut.
+
+- ``border``
+    ```xml
+    <button border="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur visibility dari
+    border sebuah element.
+
+- ``align``
+    ```xml
+    <button align="middle-center"/>
+    ```
+    Attribute ini mengatur alignment element. Nilai dari attribute ini yaitu:
+    top-left, top-center, top-right, middle-left, middle-center, middle-right,
+    bottom-left, bottom-center, bottom-right.
+
+- ``margin``
+    ```xml
+    <verticalLayout margin="true"/>
+    ```
+    Bernilai ``true`` atau ``false``. Attribute ini mengatur margin sebuah komponen.
+    Jika dipilih ``true`` secara default bagian atas, kanan, bawah dan kiri element akan diberi margin.
+    Untuk mengcustomisasi margin bisa menggunakan cara "true, false, true, false" (from top, right, bottom, left).
+    Hasilnya yang akan diberi margin atas dan bawah saja.
+
+- ``domain``
+    ```xml
+    <tproperty name="staff_id" domain="[('department_id', '=', '$parent.department_id')]"/>
+    ```
+    Digunakan untuk melakukan filter menggunakan domain.
+
+Layout Attribute
+------
+
+Attribute yang berada pada kelompok *Layout* **tidak harus** ditulis atau diset.
+Untuk beberapa attribute telah mempunyai nilai awal. Berikut
+adalah attribute-attribute yang masuk ke dalam kelompok *Layout*,
+
+- ``padding``
+    ```xml
+    <verticalLayout padding="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur padding
+    sebuah komponen.
+
+- ``spacing``
+    ```xml
+    <verticalLayout spacing="true"/>
+    ```
+    Bernilai ``True`` atau ``False``. Attribute ini mengatur spacing
+    antar komponen yang berada di dalam layout.
+
+
+Field Attribute
+------
+
+Field attribute ini hanya dipunyai oleh komponen ``field``. Jika ada attribute yang tidak seharusnya di sebuah ``field``, maka
+akan diabaikan. Berikut adalah daftar attribute:
+
+- **widget**
+    Attribute widget digunakan untuk memberikan efek tertentu terhadap sebuah field.
+
+    Jenis-jenis dari attribute widget dapat dilihat setelah penjelasan field attribute di bawah ini.
+
+- **value**
+    Attribute value digunakan untuk mengisi value pada sebuah field/element.
+
+- **no_caption**
+    Attribute ini digunakan untuk menghilangkan caption dari sebuah field.
+
+- **link**
+    Attribute ini digunakan untuk membuat value dari sebuah field menjadi link.
+
+- **on_change**
+    Attribute ini digunakan untuk menempelkan fuction dari modul yang akan diaktifkan ketika out focus dari sebuah field input setelah mengubah value.
+
+
+Widget Attribute
+------
+
+- statusbar
+    ```xml
+     <field name="state" widget="statusbar" statusbar_visible="draft,sent,progress,manual,done"/>
+    ```
+    Widget ini digunakan untuk field bertipe Selection untuk menampilkan dalam bentuk status bar.
+    Attribute statusbar memiliki pasangan atribute yaitu:
+
+    - statusbar_visible
+        yang berguna untuk menampilkan data apa saja dari id item tersebut.
+    - statusbar_colors
+        yang berguna untuk meberikan warna item.
+
+- monetary
+    ```xml
+     <field name="price_subtotal" widget="monetary" options="USD" width="200px"/>
+    ```
+    Widget ini digunakan untuk field bertipe float atau integer untuk menampilkan value bersama dengan mata uangnya.
+    Attribute monetary memiliki pasangan atribute yaitu:
+
+    - options
+        untuk menentukan mata uangnya.
+
+- timepicker
+    ```xml
+     <field name="date" widget="timepicker" options="MONTH"/>
+    ```
+    Widget ini digunakan untuk field bertipe datetime untuk menampilkan value time dengan format yang diinginkan.
+    Attribute timepicker memiliki pasangan atribute yaitu:
+
+    - options
+        untuk menentukan format time (HOUR/MINUTE/SECOND). By default adalah SECOND.
+
+        SECOND maksudnya value yang ditampilkan adalah HOUR:MINUTE:SECOND
+
+        MINUTE maksudnya value yang ditampilkan adalah HOUR:MINUTE
+
+        HOUR maksudnya value yang ditampilkan adalah HOUR
+
+
+Other Attribute
+------
+
+- view_item_amount
+    ```xml
+        <field name="department_id" view_item_amount="all"/>
+        <field name="position_id" view_item_amount="3"/>
+    ```
+
+    Attribute ``view_item_amount`` digunakan untuk menentukan jumlah item yang akan ditampilkan pada list pilihan component ``many2one``.
+    Secara default jumlah item yang ditampilkan adalah 5 item. Jika "view_item_amount" diisi <1 maka secara default akan ditampilkan 5 item.

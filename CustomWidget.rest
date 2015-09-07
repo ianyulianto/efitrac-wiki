@@ -1,0 +1,287 @@
+Untuk membuat class custom widget, class custom widget harus di extend dari class **ComponentCustomWidget**.
+Component CustomWidget ini harus dimasukan di module yang bersangkutan.
+
+Untuk lebih jelas bisa dilihat pada contoh berikut:
+
+```java
+    package com.efitrac.module.hrd.workingschedule; //digunakan untuk source pada xml
+
+    import com.efitrac.commons.dao.model.AbstractModel;
+    import com.efitrac.commons.dao.model.column.Field;
+    import com.efitrac.commons.dao.model.column.Fields;
+    import com.efitrac.commons.helper.variable.Domain;
+    import com.google.common.base.Optional;
+    import com.vaadin.event.FieldEvents;
+    import com.vaadin.ui.Component;
+    import com.vaadin.ui.Label;
+    import com.vaadin.ui.TextField;
+    import console.vaadin.page.web.view.element.field.ComponentCustomWidget;
+    import console.vaadin.page.web.view.element.field.FieldContainer;
+    import org.w3c.dom.Node;
+
+    import java.util.Map;
+
+    /**
+     * @author Who Make This Widget
+     * @since 2015
+     */
+    public class MyWidget extends ComponentCustomWidget {
+
+        TextField c;
+        Label label;
+        /**
+         * @param parent
+         * @param field  Field yang berhubungan yang berasal dari class model
+         * @param node   Node component yang berasal dari file xml
+         * @param mode   mode component (edit/view/create)
+         */
+        public MyWidget(FieldContainer parent, Field field, Node node, String mode) {
+            super(parent, field, node, mode);
+        }
+
+        /**
+         * Untuk mendapatkan field dari class model
+         * Fields.Char dapat diganti sesuai kebutuhan. Fields.<Type>
+         *
+         * @return
+         */
+        @Override
+        public Fields.Char getFieldData() {
+            return (Fields.Char) super.getFieldData();
+        }
+
+        /**
+         * Untuk menggenarate component mode view
+         */
+        @Override
+        public Component renderView() {
+            //Contoh function yang tersedia yang bisa digunakan
+            AbstractModel model = getModel();
+            String mode = getMode();
+            FieldContainer parent = getParent();
+            Map<String, String> attr = getAttribute();
+            Optional<String> attrString = getAttribute("string");
+            Domain customDomain = getCustomDomain();
+            Map<String, Object> context = getContext();
+            Node nodeField = getNodeAttribute();
+
+            /*
+                make component view here
+             */
+            if (label == null)
+                label=new Label();
+
+            return label;
+        }
+
+        /**
+         * Untuk menggenarate component mode edit/create
+         */
+        @Override
+        public Component renderEdit() {
+            //Contoh membuat component custom char
+            if (c == null) {
+                c = new TextField(getFieldData().getLabel());
+                c.setImmediate(true);
+                c.setId(getFieldData().getId());
+                c.setDescription(getFieldData().getHelp());
+                c.addBlurListener(new FieldEvents.BlurListener() {
+                    private static final long serialVersionUID = 2575447867644371406L;
+
+                    @Override
+                    public void blur(FieldEvents.BlurEvent blurEvent) {
+                        setValueComponent(c.getValue());
+                        onValueChange();
+                    }
+                });
+                renderEditDefaultValue();
+                super.renderMandatory(c);
+            }
+            return c;
+        }
+
+        /**
+         * Untuk menampilkan default value component mode view
+         */
+        @Override
+        public void renderViewDefaultValue() {
+            //Contoh dibawah adalah cara menggunakan default value yang berasal dari class model
+            Object defaultValue = getDefaultValue();
+            renderEditValueImpl(defaultValue);
+        }
+
+        /**
+         * Untuk menampilkan default value component mode edit/create
+         */
+        @Override
+        public void renderEditDefaultValue() {
+
+        }
+
+        /**
+         * Untuk menampilkan value component mode view
+         *
+         * @param value
+         */
+        @Override
+        protected void renderViewValueImpl(Object value) {
+            //set value disesuaikan sesuai dengan componentnya
+            c.setValue(String.valueOf(value));
+        }
+
+        /**
+         * Untuk menampilkan value component mode edit/create
+         *
+         * @param value
+         */
+        @Override
+        protected void renderEditValueImpl(Object value) {
+            //set value disesuaikan sesuai dengan componentnya
+            c.setValue(String.valueOf(value));
+        }
+
+        /**
+         * Untuk memberikan value dari component ini
+         *
+         * @return
+         */
+        @Override
+        public Object getValue() {
+            return getValueComponent();
+        }
+
+        /**
+         * untuk implementasi kedepan
+         */
+        @Override
+        public void clear() {
+
+        }
+
+        /**
+         * Untuk memberikan component mode view
+         *
+         * @return Component
+         */
+        @Override
+        public Component getComponentView() {
+            return label;
+        }
+
+        /**
+         * Untuk memberikan component mode edit/create
+         *
+         * @return Component
+         */
+        @Override
+        public Component getComponentEdit() {
+            return c;
+        }
+    }
+
+```
+
+Untuk menggunakan custom widget, pada xml diperlukan adanya beberapa attribute yang digunakan sebagai informasi widget mana yang akan dipakai.
+
+```xml
+    <field name="dt_working_schedule" widget="custom_widget" source="com.efitrac.module.hrd.workingschedule.MyWidget">
+        <param a="satu" b="dua" />
+    </field>
+```
+
+Attribute ``widget="custom_widget"`` harus disertakan untuk menandai bahwa field tersebut menggunakan custom widget.
+
+Attribute ``source`` digunakan untuk menunjukan letak java class component custom widget yang digunakan.
+
+Tag ``<param>`` digunakan untuk mengumpan parameter ke dalam class widgetnya.
+
+
+Aturan membuat function getValue berdasarkan jenis tipe field
+------
+
+- CHAR
+    return value: String
+
+- TEXT
+    return value: String
+
+- FLOAT
+    return value: BigDecimal
+
+- INTEGER
+    return value: Integer
+
+- DATE
+    return value: Date
+
+- TIME
+    return value: Date
+
+- DATETIME
+    return value: Date
+
+- BOOLEAN
+    return value: Boolean
+
+- BINARY
+    return value: String (Url Image)
+
+- SELECTION
+    return value: String (Id Item)
+
+
+- MANY TO ONE
+    return value: Integer (Id Item)
+
+
+- ONE TO MANY
+    return value: ArrayList Of List Value
+
+    ```java
+        List<List<Object>> values = new ArrayList<>();
+
+        for (int i = 0; i < listRowId.length - 1; i++) {
+            int rowId = Integer.parseInt(listRowId[i].toString());
+
+            List<Object> rowValueList = new ArrayList<>();
+
+            // contoh dibawah ini rowId dari row baru by default -1 , jika updated rowId berisi id sebenarnya dari database
+            if (rowId < 0) {
+                //insert
+                rowValueList.add(0); // 0: insert
+                rowValueList.add(null);
+            } else {
+                //update
+                rowValueList.add(1); // 1: update , 2: delete (untuk delete cara sama seperti update)
+                rowValueList.add(rowId);
+            }
+
+            Map<String, Object> value = new HashMap<>(); //populate value row dari component ini
+            rowValueList.add(value);
+
+            values.add(rowValueList);
+        }
+    ```
+
+
+- MANY TO MANY
+    return value: ArrayList Of List Value
+
+    ```java
+        List<List<Object>> values = new ArrayList<>();
+
+        List<Object> rowValueList = new ArrayList<>();
+        rowValueList.add(6); // untuk m2m harus diisi 6
+        rowValueList.add(0); // 0: insert, 1: update , 2: delete (cara sama seperti o2m)
+
+        List<Integer> rowIds = new ArrayList<>();
+
+        //populate value rowId dari component ini
+        for (int i = 0; i < listRowId.length - 1; i++) {
+            Integer rowId = Integer.valueOf(String.valueOf(listRowId[i]));
+            rowIds.add(rowId);
+        }
+        rowValueList.add(rowIds);
+
+        values.add(vals);
+    ```

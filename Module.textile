@@ -1,0 +1,63 @@
+h1. Pengenalan
+
+Pada page ini akan menjelaskan tentang cara mengembangkan sebuah Module untuk Sistem Efitrac. Penjelasan-penjelasan tersebut mulai dari langkah-langkah yang diperlukan membuat sebuah project baru sampai dengan aturan konvensi-konvensi penamaan yang sudah ditentukan.
+
+h1. Struktur Project
+
+Aturan pertama yang harus ditaati adalah pada bagian struktur direktori dan file pada project. Sebuah file XML dengan nama <code>__init__.xml</code> harus ada pada bagian <code>resources</code> atau <code>classpath</code> dari project.
+
+[[images/Modular-Development-Project-Structure.png|align=center|float]] 
+
+Gambar di atas menunjukan struktur awal dari project yang baru saja dibuat. Terlihat letak dari file <code>__init__.xml</code> yang wajib ada. File tersebut mempunyai tujuan sebagai sebuah descriptor yang mana akan memberitahu sistem tentang informasi dari module yang sedang dikembangkan. Semua komponen-komponen yang ada di dalam sebuah Module, harus terdaftar di file tersebut, seperti contohnya, <code>model</code>, <code>depends</code>, dan lainnya.
+
+h1. File Descriptor <code>__init__.xml</code>
+
+Seperti yang sudah dijelaskan, file ini merupakan sebuah file descriptor yang memegang informasi tentang Module yang sedang dikembangkan. Jika tidak ada file descriptor, maka sebuah Module tidak akan dianggap sebagai Module yang valid, dan tentunya Module tidak dapat dilihat hasil perkembangannya. Isi dari file descriptor sudah ditentukan, dengan beberapa nilai yang harus diisi sebagai informasi Module.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<efitrac>
+    <module>
+        <attribute name="id">com.efitrac.module.mock</attribute>
+        <attribute name="name">Module Mock</attribute>
+        <attribute name="version">1.0-snapshot</attribute>
+        <attribute name="author">Ian</attribute>
+        <attribute name="website">http://www.efitrac.com/module/mock</attribute>
+        <attribute name="year">2015</attribute>
+        <attribute name="description">
+            Description
+            ===========
+            Ini adalah module dummy yang digunakan untuk uji coba implementasi proses
+            instalasi module ke System Efitrac
+        </attribute>
+        <attribute name="depends">
+            <dependencies>
+                <dependency>
+                    <module>base</module>
+                    <model>*</model>
+                </dependency>
+            </dependencies>
+        </attribute>
+        <attribute name="active">True</attribute>
+        <attribute name="installable">True</attribute>
+        <attribute name="models">
+            models/currency/currency_model.xml
+            models/customer/customer_model.xml
+            models/kota/kota-Model.xml
+        </attribute>
+        <attribute name="workflow">
+            workflow/kota-workflow.xml
+        </attribute>
+        <attribute name="menu">
+            menus/all-menu.xml
+        </attribute>
+        <attribute name="action">
+            actions/action_1.xml
+        </attribute>
+    </module>
+</efitrac>
+```
+
+Contoh XML di atas adalah contoh isi dari file descriptor. Dapat dilihat, pada xml di atas mencakup informasi-informasi yang dipunyai oleh Module. XML file descriptor diawali dengan root tag <code><efitrac></code> dan mempunyai sebuah anak tag <code><module></code>. Jika kedua tag tersebut tidak ada dan tidak pada hirarki yang benar, maka file descriptor dianggap tidak valid.
+
+Pada tag <code><attribute></code>, bagian 3 terakhir (<code>name="models"</code>, <code>name="workflow"</code>, <code>name="workflow"</code>, <code>name="menu"</code>, dan <code>name="action"</code>), isi dari elemen tersebut adalah sebuah path yang akan di-resolve pada classpath project, dengan direktori <code>resources</code> merupakan lokasi classpath dari project.
