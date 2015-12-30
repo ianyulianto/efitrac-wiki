@@ -1,6 +1,13 @@
 site_name: Efitrac
+site_url: http://efitrac.com
+site_description: Documentation for Efitrac Project
+site_author: Efitrac
+
+repo_url: https://github.com/pararaton/efitrac-wiki
+
 pages:
 - Home: index.md
-- Changes: about/release-notes.md
+- System Changes: about/release-notes.md
 - Module Release Notes:
     - Sales: modules/sales.md
+    - Foo: modules/sales.md
