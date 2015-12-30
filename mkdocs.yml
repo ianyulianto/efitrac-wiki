@@ -11,3 +11,5 @@ pages:
 - Module Release Notes:
     - Sales: modules/sales.md
     - Foo: modules/sales.md
+
+theme: mkdocs
