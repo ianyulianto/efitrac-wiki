@@ -12,4 +12,6 @@ pages:
     - Sales: modules/sales.md
     - Foo: modules/sales.md
 
-theme: mkdocs
+markdown_extensions:
+    - toc:
+        permalink: true
