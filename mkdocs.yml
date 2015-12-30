@@ -1,7 +1,6 @@
 site_name: Efitrac
 pages:
-- Home: 'index.md'
-  - Module Release Notes: 
-  - 'Sales': 'modules/sales.md'
-- About: 
-  - 'Release Notes': 'about/release-notes.md'
+- Home: index.md
+- Changes: about/release-notes.md
+- Module Release Notes:
+    - Sales: modules/sales.md
