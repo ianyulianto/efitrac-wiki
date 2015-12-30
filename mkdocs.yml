@@ -1,0 +1,4 @@
+site_name: Efitrac
+pages:
+- Home: index.md
+- About: about.md
