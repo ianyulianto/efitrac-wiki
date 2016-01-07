@@ -7,12 +7,14 @@ repo_url: https://github.com/pararaton/efitrac-wiki
 
 pages:
 - Home: index.md
-- System Changes: about/release-notes.md
 - End User Guide:
     - Access Control List (ACL): enduser/acl/access-control-list.md
     - Access Control List - Adv: enduser/acl/access-control-list-adv.md
 - Module Release Notes:
     - Sales: modules/sales.md
+- About:
+    - System Changes: about/release-notes.md
+    - Contact Us: about/contact.md
 
 markdown_extensions:
     - toc:

@@ -19,9 +19,9 @@ dalamnya:
 
 * Users
 * Menus
-* Views
+<!--- * Views --->
 * Access Rights
-* Rules
+<1--- * Rules --->
 
 ### Users
 Group dapat disamakan dengan jabatan dalam artian umum. Sehingga group mempunyai
@@ -30,24 +30,24 @@ arti jabatan dari seorang user.
 ### Menus
 Dalam menu, group mempunyai tugas untuk menyeleksi apakah user boleh melihat
 menu ini atau tidak.
-
+<!---
 ### Views
 Views adalah tampilan yang disajikan kepada *end-user* sehingga dapat melihat
 data visualisasi dari sebuah tabel. Group di sini berperan menengahi apakah
 seorang user boleh untuk melihat view tersebut atau tidak.
-
+--->
 ### Access Rights
 Access Right mengacu proteksi pada data dari model. Proteksi yang diberikan 
 melingkupi empat pertanyaan, yaitu Apakah data boleh **dilihat**, **diubah**, 
 **dibuat baru**, dan **dihapus**.  
-
+<!---
 ### Rules
 Mengacu pada data, rule memberikan penyaringan data kepada group agar dapat
 melihat data dengan spesifikasi tertentu dalam sebuah model atau tabel.
 
 *p.s. Rule sedang berada dalam proses pengembangan, sehingga fungsionalitasnya
 terbatas.*
-
+--->
 ---
 
 ## How To
