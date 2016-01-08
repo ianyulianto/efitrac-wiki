@@ -12,6 +12,8 @@ memperbolehkan user untuk dapat mengakses menu yang mempunyai hierarki yang
 paling bawah (yang mempunyai *action*), maka menu atasnya (parent menu) juga
 harus diberikan ijin.
 
+![Groups - Menus](img/menus-adv.png)
+
 ---
 
 ## Access Rights
