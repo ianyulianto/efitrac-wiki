@@ -34,11 +34,15 @@ mempunyai permission ini. Biasanya pada bagian atas tampilan, ada tombol
 **edit**, jika tidak mempunyai persmission ini, maka tombol edit akan tidak
 terlihat.
 
+![Groups - Write Access](img/write-access.png)
+
 ### Create Access
 Hampir sama dengan *Write Access*, Create Access memberikan pengaturan agar
 user yang tidak mempunyai permission ini tidak dapat menambahkan data baru.
 Dapat dilihat dari tombol merah dengan bertuliskan **Create** di atas tampilan
 sebuah model.
+
+![Groups - Create Access](img/create-access.png)
 
 ### Delete Access
 Permission untuk Delete Access diguanakan untuk mengatur siapa saja yang 
