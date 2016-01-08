@@ -7,11 +7,10 @@ lebih mudah.
 
 ## Menus
 Pengaturan sekuritas dari menu memerlukan ketelitian yang cukup tinggi, apalagi
-beberapa menu yang ada mempunyai nama yang sama atau hampir sama. Sesuai dengan
-hirarki Menu (lihat [Menu]), Jika menu yang mempunyai *action* dicantumkan pada
-sebuah group, maka menu *parent*-nya juga akan terbuka.
-
-![Groups - Menus](img/menu-adv.png)
+beberapa menu yang ada mempunyai nama yang sama atau hampir sama. Jika ingin 
+memperbolehkan user untuk dapat mengakses menu yang mempunyai hierarki yang 
+paling bawah (yang mempunyai *action*), maka menu atasnya (parent menu) juga
+harus diberikan ijin.
 
 ---
 
