@@ -27,9 +27,13 @@ dalamnya:
 Group dapat disamakan dengan jabatan dalam artian umum. Sehingga group mempunyai
 arti jabatan dari seorang user.
 
+![Groups - Users](img/users.png)
+
 ### Menus
 Dalam menu, group mempunyai tugas untuk menyeleksi apakah user boleh melihat
 menu ini atau tidak.
+
+![Groups - Menus](img/menus.png)
 <!---
 ### Views
 Views adalah tampilan yang disajikan kepada *end-user* sehingga dapat melihat
@@ -39,7 +43,9 @@ seorang user boleh untuk melihat view tersebut atau tidak.
 ### Access Rights
 Access Right mengacu proteksi pada data dari model. Proteksi yang diberikan 
 melingkupi empat pertanyaan, yaitu Apakah data boleh **dilihat**, **diubah**, 
-**dibuat baru**, dan **dihapus**.  
+**dibuat baru**, dan **dihapus**.
+  
+![Groups - Access Rights](img/access-rights.png)
 <!---
 ### Rules
 Mengacu pada data, rule memberikan penyaringan data kepada group agar dapat
