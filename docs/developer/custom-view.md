@@ -10,7 +10,7 @@ Class ini merupakan class induk untuk membuat tampilan custom view. Di dalam cla
 * getModelRef : Digunakan untuk mendapatkan referensi model dari view ini
 * getParent : Digunakan untuk mendapatkan parent dari view ini
 * getXMLNode : Digunakan untuk mendapatkan node xml dari view ini
-* getAttribute : Digunakan untuk mendapatkan attribute dari xml untuk view ini
+* getAttribute : Digunakan untuk mendapatkan attribute dari xml element untuk view ini
 
 ## How to build custom view?
 
@@ -36,7 +36,6 @@ public class CobaCustomView extends CustomViewLayout {
      */
     @Override
     public void render() {
-        renderCommonAttribute(view, getAttribute());
         Map<String, Field> fields = getModelRef().getFields();
 
         /**
@@ -71,9 +70,4 @@ Pada contoh code diatas, kita dapat menggunakan custom view tersebut dengan meng
 dan diberi attribute `source` untuk menentukan letak dimana file java dari custom view tersebut berada. 
 Di dalam tag custom juga bisa diberi tag-tag yang lain sesuai kebutuan dari developer.
 
-## What Next?
-Untuk penjelasan lebih lanjut, silahkan kunjungi halaman 
-[Access Control List - Adv].
- 
-[Access Control List - Adv]: access-control-list-adv.md
 
