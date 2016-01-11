@@ -1,5 +1,5 @@
 # Overview
-Custom View adalah sebuah view yang bisa dibuat sesuai keinginan developer menggunakan komponent-komponent vaadin.
+Custom View adalah sebuah view yang bisa dibuat sesuai keinginan developer menggunakan komponen-komponent vaadin.
 View ini dibuat dengan meng-extend class **CustomViewLayout**
 
 ---
