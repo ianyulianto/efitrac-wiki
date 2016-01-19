@@ -74,7 +74,7 @@ Di dalam tag custom juga bisa diberi tag-tag yang lain sesuai kebutuan dari deve
 
 Di bawah ini adalah custom view order monitor sebuah restoran:
 
-![Contoh Custom View](img/restaurant-table.png)
+![Contoh Custom View](img/restaurant-table.PNG)
 
 Di bawah ini ada cara membuatan custom view order monitor tersebut:
 
