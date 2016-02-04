@@ -3,8 +3,8 @@ Pada Efitrac di sertakan fitur versionning untuk mempermudah melakukan upgrade p
 
 
 ---
-## Cara Pemakaian Fitur Versionning
-Berikut adalah langkah-langkah cara pemakain fitur versionning :
+## Cara Pemakaian Fitur Versioning
+Berikut adalah langkah-langkah cara pemakain fitur Versioning :
 
 1. file version_info.xml yang di letakkan pada base directory dari module yang ada.
 2. membuat isi xml dari version_info.xml dengan format.
@@ -50,7 +50,7 @@ public class Version {
 
 
 ---
-## Cara Kerja Fitur Versionning
+## Cara Kerja Fitur Versioning
 Versioning ini dapat di aktifkan dengan melakukan beberapa step :
 
 1. Pendefinisian upgrade yang ada di file version_info.xml
@@ -61,8 +61,8 @@ kalau versi dari module sekarang tidak ada di version_info.xml maka di anggap ve
 "update-proc" akan di execute.
 
 ---
-## Standarisasi Format Versionning
- Standard penulisan angka pada versionning :
+## Standarisasi Format Versioning
+ Standard penulisan angka pada Versioning :
 
    RRMMMmmmm
 
