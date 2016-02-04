@@ -6,8 +6,8 @@ Pada Efitrac di sertakan fitur versionning untuk mempermudah melakukan upgrade p
 ## Cara Pemakaian Fitur Versioning
 Berikut adalah langkah-langkah cara pemakain fitur Versioning :
 
-1. file version_info.xml yang di letakkan pada base directory dari module yang ada.
-2. membuat isi xml dari version_info.xml dengan format.
+* file version_info.xml yang di letakkan pada base directory dari module yang ada.
+* membuat isi xml dari version_info.xml dengan format.
 
 ```xml
 <efitrac>
@@ -25,7 +25,7 @@ Berikut adalah langkah-langkah cara pemakain fitur Versioning :
 </efitrac>
 ```
 
-3. Membuat method/fungsi pada class di diskripsikan di xml.
+* Membuat method/fungsi pada class di diskripsikan di xml.
 
 ```java
 public class Version {
@@ -35,7 +35,7 @@ public class Version {
 }
 ```
 
-4. Mengubah version di descriptor.xml sessuai dengan version name yang terakhir di buat di version_info.xml, contoh :
+* Mengubah version di descriptor.xml sessuai dengan version name yang terakhir di buat di version_info.xml, contoh :
 
 ```xml
 <module name="My First Module"
@@ -55,9 +55,9 @@ Versioning ini dapat di aktifkan dengan melakukan beberapa step :
 
 1. Pendefinisian upgrade yang ada di file version_info.xml
 kalau versi dari module sekarang tidak ada di version_info.xml maka di anggap versi module tersebut tidak di support upgradenya.
-2. version_info.xml ada di setiap module, berfungsi untuk penanganan upgrade .
+2. version_info.xml ada di setiap module, berfungsi untuk penanganan upgrade.
 3. version yang di cek adalah version yang ada di ir.module.module di bandingkan dengan version_info.xml.
-4. proses logic untuk upgrade ada di method yang di definisikan di tag
+4. proses logic untuk melakukan upgrade ada di method yang di definisikan di tag
 "update-proc" akan di execute.
 
 ---
