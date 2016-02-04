@@ -55,12 +55,18 @@ Versioning ini dapat di aktifkan dengan melakukan beberapa step :
 
 1. Pendefinisian upgrade yang ada di file version_info.xml
 kalau versi dari module sekarang tidak ada di version_info.xml maka di anggap versi module tersebut tidak di support upgradenya.
-2. version_info.xml ada di setiap module.
+2. version_info.xml ada di setiap module, berfungsi untuk penanganan upgrade .
 3. version yang di cek adalah version yang ada di ir.module.module di bandingkan dengan version_info.xml.
 4. proses logic untuk upgrade ada di method yang di definisikan di tag
 "update-proc" akan di execute.
 
 ---
 ## Standarisasi Format Versionning
+ Standard penulisan angka pada versionning :
 
----
+   RRMMMmmmm
+
+ * R = Release
+ * M = major
+ * m = minor
+

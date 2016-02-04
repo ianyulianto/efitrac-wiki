@@ -13,6 +13,7 @@ pages:
     - Access Control List - Adv: enduser/acl/access-control-list-adv.md
 - Developer:
     - Custom View: developer/custom-view.md
+    - Versionning: developer/versionning.md
 - Module Release Notes:
     - Sales: modules/sales.md
 - About:
