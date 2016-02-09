@@ -94,20 +94,50 @@ Untuk .
 
 Untuk mendapatkan tanggal saat ini.
 
+```java
+"[('tanggal','=','=today()]"
+```
+
 * ref
 
-Untuk mendapatkan
+Untuk mendapatkan id dari data yang di definisikan di xml
+<br>Contoh :
+"[('id','=','=ref()')]"
+
+TBD : 
+<br>- Kata-katanya rasanya masih kurang tepat
 
 * exec
 
+Untuk mengeksekusi method yang ada pada sebuah model.
+<br>Contoh :
+
+Pendefinisian domain 
+
+```xml
+"[('id','=','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
+```
+
+Pendefinisian fungsi
+
+```java
+public Integer getMyCustomFunc(Integer parentId) {
+
+        Integer id;
+
+	//Do something here
+
+
+        return id;
+    }
+```
 
 * eval
 
 ???
 
-TBD : <br>
-
-- example penggunaan dari setiap fungsi
+TBD : 
+<br>- cari info lebih lanjut soal eval
 
 ### Konversi dari penjabaran String ke List&lt;Object&gt;
 
@@ -123,18 +153,21 @@ Contoh :
 <br>contoh sederhana
 
 ```xml
-domain="[('id','in','=exec('func','module.Model','$parent_id)')]"
+domain="[('id','=','$parent_id')]"
 ```
 
 contoh dengan menggunakan fungsi
 
 ```xml
-domain="[('id','in','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
+domain="[('id','=','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
 
 Parameter khusus selain field yang ada pada model :
 
-	- parent_id
+| Nama | Kegunaan |
+|--|--|
+| parent_id | untuk mendapatkan id dari model parent dari form |
 
-### Tabel Perbandingan Fitur ??? TBD
+
+
 
