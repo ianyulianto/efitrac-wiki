@@ -16,6 +16,9 @@ pages:
     - Domain: developer/domain.md
     - Inherit View: developer/inherit-view.md
     - Versionning: developer/versioning.md
+- API:
+    - Overview: api/overview.md
+    - Storage: api/storage/storage.md
 - Module Release Notes:
     - Sales: modules/sales.md
 - About:
