@@ -27,7 +27,7 @@ domain.add("<kondisi or atau and>");//kondisi "and" atau "or" kalau di perlukan
 ```
 
 ### Tata cara dalam pembuatan domain
-Terdapat aturan-aturan yang
+Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan terdapat sedikit perbedaan dalam pendefinisian dengan String ataupun dengan Object. Berikut adalah cara-cara pendefinisian domain :
 
 | Pendefinisian | String | Object |
 |--|--|--|
@@ -36,6 +36,13 @@ Terdapat aturan-aturan yang
 | - Penjabaran value Integer| tanpa menggunakan '' | menggunakan value Integer|
 | contoh : | "('number', '=', 1)" | new Object[]{"number", "=", 1}|
 | - Value untuk ID | value untuk ID sama dengan penjabaran value integer | value untuk ID sama dengan penjabaran value integer |
+||||
+| - Penjabaran value untuk "in" atau "not in"|||
+| contoh : |"('ids', 'in', [1,2,3])"|List&lt;Integer&gt; paramIds = new ArrayList<>();<br>paramIds.add(1);<br>paramIds.add(2);<br>paramIds.add(3);<br>new Object[]{"ids", "in", paramIds};|
+| - Penjabaran value untuk between | unknown (TBD) | |
+|contoh :|| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
+| - Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
+|contoh :| "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
 
 ### Operator yang ada pada domain
 
@@ -63,15 +70,45 @@ Terdapat aturan-aturan yang
 
 \* negate belum support Operator between, dan cuma di support untuk pencarian dengan AbstractModel.searchN
 
-TBD :
+TBD : <br>
 - Link ke dokumentasi AbstractModel.searchN
 
 ### Fungsi-fungsi yang di sediakan pada domain
-fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari domain. berikut 
+Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari domain. berikut adalah fungsi-fungsi yang di support oleh domain :
 
+
+* current_user_id
+<br>Untuk mendapatkan user id yang sedang login saat ini.
+<contoh>contoh penggunaan
+
+* str_to_date
+
+Untuk mengubah inputan dari string menjadi date.
+
+* date_create
+
+Untuk .
+
+* today
+
+Untuk mendapatkan tanggal saat ini.
+
+* ref
+
+Untuk mendapatkan
+
+* exec
+
+
+* eval
+
+???
+
+TBD : <br>
+- example
 
 ### Konversi dari penjabaran String ke List<Object>
-untuk menjembatani antara 
+Untuk menjembatani antara domain 
 
 ### Tabel Perbandingan Fitur ??? TBD
 
