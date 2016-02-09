@@ -105,18 +105,19 @@ Untuk mendapatkan
 ???
 
 TBD : <br>
-- example
+- example penggunaan dari setiap fungsi
 
 ### Konversi dari penjabaran String ke List<Object>
 
 Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
 
-
 ### Fitur khusus saat menggunakan domain dengan String pada XML untuk view
 
 #### Parameter
+
 Fungsi parameter digunakan untuk mengirimkan nilai dari form yang di buat ke domain, parameter di mulai dengan tanda "$" di ikuti dengan nama field yang ada pada model.
-<br>Contoh : 
+
+Contoh : 
 <br>contoh sederhana
 
 ```xml
@@ -127,6 +128,9 @@ domain="[('id','in','=exec('func','module.Model','$parent_id)')]"
 domain="[('id','in','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
 
-#####
+Parameter khusus selain field yang ada pada model :
+
+	- parent_id
+
 ### Tabel Perbandingan Fitur ??? TBD
 
