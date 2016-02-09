@@ -40,7 +40,7 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 | - Penjabaran value untuk "in" atau "not in"|||
 | contoh : |"('ids', 'in', [1,2,3])"|List&lt;Integer&gt; paramIds = new ArrayList<>();<br>paramIds.add(1);<br>paramIds.add(2);<br>paramIds.add(3);<br>new Object[]{"ids", "in", paramIds};|
 | - Penjabaran value untuk between | unknown (TBD) | |
-|contoh :|| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
+|contoh :|-| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
 | - Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
 |contoh :| "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
 
@@ -65,7 +65,7 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 | Nama Kondisi | Simbol Dari Kondisi |
 |--|--|
 | and | & |
-| or | | |
+| or | &#124; |
 | negate/not* | ! |
 
 \* negate belum support Operator between, dan cuma di support untuk pencarian dengan AbstractModel.searchN
@@ -108,7 +108,24 @@ TBD : <br>
 - example
 
 ### Konversi dari penjabaran String ke List<Object>
-Untuk menjembatani antara domain 
+Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
 
+
+### Fitur khusus saat menggunakan domain dengan String pada XML untuk view
+
+#### Parameter
+Fungsi parameter digunakan untuk mengirimkan nilai dari form yang di buat ke domain, parameter di mulai dengan tanda "$" di ikuti dengan nama field yang ada pada model.
+<br>Contoh : 
+<br>contoh sederhana
+
+```xml
+domain="[('id','in','=exec('func','module.Model','$parent_id)')]"
+```
+<br>contoh dengan menggunakan fungsi
+```xml
+domain="[('id','in','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
+```
+
+####
 ### Tabel Perbandingan Fitur ??? TBD
 
