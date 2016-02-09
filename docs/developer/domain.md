@@ -7,6 +7,7 @@ Cara pembuatan domain dengan String atau dengan Object agak berbeda, untuk Domai
 
 ### Pembuatan Domain Dengan Menggunakan String
 
+
 Struktur pembuatan domain dengan String :
 
 ```java
@@ -25,7 +26,16 @@ domain.add(new Object[]{"<Field Yang Akan Di Bandingkan>", "<Operator Pembanding
 domain.add("<kondisi or atau and>");//kondisi "and" atau "or" kalau di perlukan
 ```
 
-### Aturan-aturan dalam pembuatan domain
+### Tata cara dalam pembuatan domain
+Terdapat aturan-aturan yang
+
+| Pendefinisian | String | Object |
+|--|--|--|
+| - Penjabaran value String| harus menggunakan ' ' | cuma menggunakan Object String biasa tanpa menggunakan ' '|
+| contoh : | "('name', '=', 'budi')" | new Object[]{"name", "=", "budi"}|
+| - Penjabaran value Integer| tanpa menggunakan '' | menggunakan value Integer|
+| contoh : | "('number', '=', 1)" | new Object[]{"number", "=", 1}|
+| - Value untuk ID | value untuk ID sama dengan penjabaran value integer | value untuk ID sama dengan penjabaran value integer |
 
 ### Operator yang ada pada domain
 
@@ -37,10 +47,31 @@ domain.add("<kondisi or atau and>");//kondisi "and" atau "or" kalau di perlukan
 | less than | < |
 | more equals than | >= |
 | more than | > |
+| like | like |
+| not like | not like |
+| not in | not in |
+| in | in |
+| between | between |
 
+### Operator kondisi yang ada pada domain
+
+| Nama Kondisi | Simbol Dari Kondisi |
+|--|--|
+| and | & |
+| or | | |
+| negate/not* | ! |
+
+\* negate belum support Operator between, dan cuma di support untuk pencarian dengan AbstractModel.searchN
+
+TBD :
+- Link ke dokumentasi AbstractModel.searchN
 
 ### Fungsi-fungsi yang di sediakan pada domain
 fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari domain. berikut 
 
-## Tabel Perbandingan Fitur ??? TBD
+
+### Konversi dari penjabaran String ke List<Object>
+untuk menjembatani antara 
+
+### Tabel Perbandingan Fitur ??? TBD
 
