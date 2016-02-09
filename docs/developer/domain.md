@@ -32,6 +32,11 @@ domain.add("<kondisi or atau and>");//kondisi "and" atau "or" kalau di perlukan
 | Nama Operator | Simbol Dari Operator |
 |--|--|
 | equals | = |
+| not equals | != |  
+| less equals than | <= |
+| less than | < |
+| more equals than | >= |
+| more than | > |
 
 
 ### Fungsi-fungsi yang di sediakan pada domain
