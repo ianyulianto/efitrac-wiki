@@ -74,6 +74,7 @@ TBD : <br>
 - Link ke dokumentasi AbstractModel.searchN
 
 ### Fungsi-fungsi yang di sediakan pada domain
+
 Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari domain. berikut adalah fungsi-fungsi yang di support oleh domain :
 
 
