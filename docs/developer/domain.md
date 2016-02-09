@@ -108,6 +108,7 @@ TBD : <br>
 - example
 
 ### Konversi dari penjabaran String ke List<Object>
+
 Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
 
 
@@ -126,6 +127,6 @@ domain="[('id','in','=exec('func','module.Model','$parent_id)')]"
 domain="[('id','in','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
 
-####
+#####
 ### Tabel Perbandingan Fitur ??? TBD
 
