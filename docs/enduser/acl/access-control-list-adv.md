@@ -51,5 +51,13 @@ diperbolehkan untuk menghapus sebuah data dalam model. Jika diperbolehkan,
 maka akan ada pilihan **Delete** pada seleksi *More*. Seleksi tersebut hanya ada
 ketika masuk ke mode **form**.
 
+---
+
+## Record Rules
+Jika Access Right digunakan untuk mengatur perijinan seorang user mengakses
+sebuah model, **Record Rule** digunakan untuk mengatur perijinan pada level
+lebih dalam lagi, yaitu bagian data dari sebuah model.
+
+
 
 [Menu]: ../menu.md
