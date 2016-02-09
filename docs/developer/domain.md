@@ -80,34 +80,69 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 
 * current_user_id
 <br>Untuk mendapatkan user id yang sedang login saat ini.
-<contoh>contoh penggunaan
+<br>Contoh :
+
+```java
+"[('id','=','=current_user_id()')]"
+```
 
 * str_to_date
 
 Untuk mengubah inputan dari string menjadi date.
+<br>Contoh :
 
-* date_create
+```java
+"[('tanggal','=','=str_to_date()')]"
+```
 
-Untuk .
+* date_create(instance tanggal, tipe modifier, nilai modifier)
+
+Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
+<br>Contoh :
+
+```java
+"[('tanggal','=','=date_create('now','sec',1)')]"
+```
+
+List value parameter 1 
+
+| value | keterangan |
+|--|--|
+| now | tanggal saat ini |
+
+List value parameter 2 
+
+| value | keterangan |
+|--|--|
+| sec | ditambahkan dengan detik |
+| day | ditambahkan dengan hari |
+| month | ditambahkan dengan bulan |
+| year | ditambahkan dengan tahun |
+| time | ditambahkan dengan jam,menit,detik dengan format jam:menit:detik |
+
 
 * today
 
 Untuk mendapatkan tanggal saat ini.
+<br>Contoh :
 
 ```java
-"[('tanggal','=','=today()]"
+"[('tanggal','=','=today()')]"
 ```
 
-* ref
+* ref(...)
 
 Untuk mendapatkan id dari data yang di definisikan di xml
 <br>Contoh :
-"[('id','=','=ref()')]"
+
+```java
+"[('id','=','=ref('module.record_name')')]"
+```
 
 TBD : 
 <br>- Kata-katanya rasanya masih kurang tepat
 
-* exec
+* exec(jenis, nama model, nama fungsi)
 
 Untuk mengeksekusi method yang ada pada sebuah model.
 <br>Contoh :
