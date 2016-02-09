@@ -106,9 +106,10 @@ Untuk mendapatkan
 ???
 
 TBD : <br>
+
 - example penggunaan dari setiap fungsi
 
-### Konversi dari penjabaran String ke List<Object>
+### Konversi dari penjabaran String ke List&lt;Object&gt;
 
 Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
 
@@ -124,7 +125,9 @@ Contoh :
 ```xml
 domain="[('id','in','=exec('func','module.Model','$parent_id)')]"
 ```
-<br>contoh dengan menggunakan fungsi
+
+contoh dengan menggunakan fungsi
+
 ```xml
 domain="[('id','in','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
