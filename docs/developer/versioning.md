@@ -70,3 +70,20 @@ Versioning ini dapat di aktifkan dengan melakukan beberapa step :
  * M = major
  * m = minor
 
+## Snippet/Example
+Berikut adalah kumpulan dari code snippet atau class/method yang sering di pakai untuk melakukkan update.
+
+### Add or Update Model Field Snippet
+```java
+String msg; 
+ModelService modelService=ServiceBeanResolver.getModelService();
+try {
+    String modelName="my.new.model";
+    modelService.initModel(modelName);
+    System.out.println("patch MyNewModel success");
+} catch (ModelValidationException e) {
+    e.printStackTrace();
+    msg = e.getMessage();
+}
+return msg;
+```
