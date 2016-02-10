@@ -24,7 +24,7 @@ pages:
         - AbstractModel: developer/abstractmodel.md
         - Model Inheritance: developer/model-inheritance.md
     - Domain: developer/domain.md
-    - Versionning: developer/versioning.md
+    - Versioning: developer/versioning.md
 - Module Release Notes:
     - Sales: modules/sales.md
 - About:
