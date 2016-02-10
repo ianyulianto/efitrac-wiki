@@ -107,13 +107,13 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 
 >List value parameter 1 
 
->| value | keterangan |
+| Value | Keterangan |
 |--|--|
 | now | tanggal saat ini |
 
 >List value parameter 2 
 
->| value | keterangan |
+| Value | Keterangan |
 |--|--|
 | sec | ditambahkan dengan detik |
 | day | ditambahkan dengan hari |
