@@ -1,7 +1,7 @@
 # Overview
 Model Inheritance di gunakan untuk ...
 
-## Inheritance Pada Efitrac
+## Jenis Model Inheritance Pada Efitrac
 Model Inheritance pada efitrac ada 3 macam, dan ketiganya dapat di gunakan dalam pengembangan module-module efitrac, berikut adalah jenis-jenis dari model inheritance yang ada :
 ### Standard Model Inheritance
 Standard Model Inheritance adalah
