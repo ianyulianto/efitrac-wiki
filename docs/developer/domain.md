@@ -31,18 +31,18 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 
 | Pendefinisian | String | Object |
 |--|--|--|
-| - Penjabaran value String| harus menggunakan ' ' | cuma menggunakan Object String biasa tanpa menggunakan ' '|
-| contoh : | "('name', '=', 'budi')" | new Object[]{"name", "=", "budi"}|
-| - Penjabaran value Integer| tanpa menggunakan '' | menggunakan value Integer|
-| contoh : | "('number', '=', 1)" | new Object[]{"number", "=", 1}|
-| - Value untuk ID | value untuk ID sama dengan penjabaran value integer | value untuk ID sama dengan penjabaran value integer |
+| Penjabaran value String| harus menggunakan ' ' | cuma menggunakan Object String biasa tanpa menggunakan ' '|
+|  | "('name', '=', 'budi')" | new Object[]{"name", "=", "budi"}|
+| Penjabaran value Integer| tanpa menggunakan '' | menggunakan value Integer|
+|  | "('number', '=', 1)" | new Object[]{"number", "=", 1}|
+| Value untuk ID | value untuk ID sama dengan penjabaran value integer | value untuk ID sama dengan penjabaran value integer |
 ||||
-| - Penjabaran value untuk "in" atau "not in"|||
-| contoh : |"('ids', 'in', [1,2,3])"|List&lt;Integer&gt; paramIds = new ArrayList<>();<br>paramIds.add(1);<br>paramIds.add(2);<br>paramIds.add(3);<br>new Object[]{"ids", "in", paramIds};|
-| - Penjabaran value untuk between | unknown (TBD) | |
-|contoh :|-| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
-| - Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
-|contoh :| "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
+| Penjabaran value untuk "in" atau "not in"|||
+|  |"('ids', 'in', [1,2,3])"|List&lt;Integer&gt; paramIds = new ArrayList<>();<br>paramIds.add(1);<br>paramIds.add(2);<br>paramIds.add(3);<br>new Object[]{"ids", "in", paramIds};|
+| Penjabaran value untuk between | unknown (TBD) | |
+|  |-| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
+| Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
+|  | "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
 
 ### Operator yang ada pada domain
 
@@ -68,7 +68,7 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 | or | &#124; |
 | negate/not* | ! |
 
-\* negate belum support Operator between, dan cuma di support untuk pencarian dengan AbstractModel.searchN
+\* *negate belum support Operator between, dan cuma di support untuk pencarian dengan AbstractModel.searchN*
 
 TBD : <br>
 - Link ke dokumentasi AbstractModel.searchN
@@ -79,8 +79,9 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 
 
 * current_user_id
-<br>Untuk mendapatkan user id yang sedang login saat ini.
-<br>Contoh :
+>Untuk mendapatkan user id yang sedang login saat ini.
+
+Contoh :
 
 ```java
 "[('id','=','=current_user_id()')]"
@@ -88,8 +89,9 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 
 * str_to_date
 
-Untuk mengubah inputan dari string menjadi date.
-<br>Contoh :
+>Untuk mengubah inputan dari string menjadi date.
+
+Contoh :
 
 ```java
 "[('tanggal','=','=str_to_date()')]"
@@ -97,8 +99,9 @@ Untuk mengubah inputan dari string menjadi date.
 
 * date_create(instance tanggal, tipe modifier, nilai modifier)
 
-Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
-<br>Contoh :
+>Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
+
+Contoh :
 
 ```java
 "[('tanggal','=','=date_create('now','sec',1)')]"
@@ -123,8 +126,9 @@ List value parameter 2
 
 * today
 
-Untuk mendapatkan tanggal saat ini.
-<br>Contoh :
+>Untuk mendapatkan tanggal saat ini.
+
+Contoh :
 
 ```java
 "[('tanggal','=','=today()')]"
@@ -132,8 +136,9 @@ Untuk mendapatkan tanggal saat ini.
 
 * ref(...)
 
-Untuk mendapatkan id dari data yang di definisikan di xml
-<br>Contoh :
+>Untuk mendapatkan id dari data yang di definisikan di xml
+
+Contoh :
 
 ```java
 "[('id','=','=ref('module.record_name')')]"
@@ -144,8 +149,9 @@ TBD :
 
 * exec(jenis, nama model, nama fungsi)
 
-Untuk mengeksekusi method yang ada pada sebuah model.
-<br>Contoh :
+>Untuk mengeksekusi method yang ada pada sebuah model.
+
+Contoh :
 
 Pendefinisian domain 
 
@@ -169,7 +175,7 @@ public Integer getMyCustomFunc(Integer parentId) {
 
 * eval
 
-???
+>???
 
 TBD : 
 <br>- cari info lebih lanjut soal eval

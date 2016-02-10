@@ -14,6 +14,7 @@ pages:
 - Developer:
     - Custom View: developer/custom-view.md
     - Domain: developer/domain.md
+    - Model Inheritance: developer/model-inheritance.md
     - Inherit View: developer/inherit-view.md
     - Versionning: developer/versioning.md
 - API:
