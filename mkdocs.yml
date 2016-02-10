@@ -12,16 +12,16 @@ pages:
     - Access Control List (ACL): enduser/acl/access-control-list.md
     - Access Control List - Adv: enduser/acl/access-control-list-adv.md
 - Developer:
+    - API:
+        - Overview: api/overview.md
+        - Controller: api/controller.md
+        - Storage: api/storage/storage.md
+        - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.
     - Custom View: developer/custom-view.md
     - Domain: developer/domain.md
     - Model Inheritance: developer/model-inheritance.md
     - Inherit View: developer/inherit-view.md
     - Versionning: developer/versioning.md
-- API:
-    - Overview: api/overview.md
-    - Controller: api/controller.md
-    - Storage: api/storage/storage.md
-    - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.
 - Module Release Notes:
     - Sales: modules/sales.md
 - About:

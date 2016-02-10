@@ -83,7 +83,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 >Untuk mendapatkan user id yang sedang login saat ini.
 <br>Contoh :
 
-```java
+>```java
 "[('id','=','=current_user_id()')]"
 ```
 
@@ -92,7 +92,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 >Untuk mengubah inputan dari string menjadi date.
 <br>Contoh :
 
-```java
+>```java
 "[('tanggal','=','=str_to_date()')]"
 ```
 
@@ -101,19 +101,19 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 >Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
 <br>Contoh :
 
-```java
+>```java
 "[('tanggal','=','=date_create('now','sec',1)')]"
 ```
 
-List value parameter 1 
+>List value parameter 1 
 
-| value | keterangan |
+>| value | keterangan |
 |--|--|
 | now | tanggal saat ini |
 
-List value parameter 2 
+>List value parameter 2 
 
-| value | keterangan |
+>| value | keterangan |
 |--|--|
 | sec | ditambahkan dengan detik |
 | day | ditambahkan dengan hari |
@@ -127,7 +127,7 @@ List value parameter 2
 >Untuk mendapatkan tanggal saat ini.
 <br>Contoh :
 
-```java
+>```java
 "[('tanggal','=','=today()')]"
 ```
 
@@ -136,7 +136,7 @@ List value parameter 2
 >Untuk mendapatkan id dari data yang di definisikan di xml
 <br>Contoh :
 
-```java
+>```java
 "[('id','=','=ref('module.record_name')')]"
 ```
 
@@ -150,13 +150,13 @@ TBD :
 
 >Pendefinisian domain 
 
-```xml
+>```xml
 "[('id','=','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
 
 >Pendefinisian fungsi
 
-```java
+>```java
 public Integer getMyCustomFunc(Integer parentId) {
 
         Integer id;
