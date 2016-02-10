@@ -18,7 +18,9 @@ pages:
     - Versionning: developer/versioning.md
 - API:
     - Overview: api/overview.md
+    - Controller: api/controller.md
     - Storage: api/storage/storage.md
+    - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.
 - Module Release Notes:
     - Sales: modules/sales.md
 - About:

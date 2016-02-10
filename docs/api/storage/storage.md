@@ -17,7 +17,7 @@ kami memberi key `storage`. Berikut adalah nilai contoh nilai kembaliannya:
   "result": {
     "size_in": "kb",
     "database": {
-      "name": "efitractest",
+      "name": "efitrac",
       "host": "localhost",
       "size": 4576
     },
@@ -30,14 +30,14 @@ kami memberi key `storage`. Berikut adalah nilai contoh nilai kembaliannya:
 }
 ```
 
-|       Key       |                                    Deskripsi                                                                  |
-|-----------------|---------------------------------------------------------------------------------------------------------------|
-| size_in         | Satuan dari key `size`.                                                                                       |
-| database        | Berisikan informasi database.                                                                                 |
-| database/name   | Nama database.                                                                                                |
-| database/host   | Host database.                                                                                                |
-| database/size   | Jumlah data yang disimpan pada database dengan satuan `size_in`.                                              |
-| storage         | Berisikan informasi tempat penyimpanan file.                                                                  |
-| storage/online  | Apakah storage yang digunakan online atau local.                                                              |
-| storage/name    | Tempat penyimpanan file yang di-upload.                                                                       |
-| storage/size    | Jumlah semua file yang sudah di-upload. Jika `online` berisi **FALSE**, maka nilai ini akan selalu **0**.     | 
+|       Key            |                                    Deskripsi                                                                  |
+|----------------------|---------------------------------------------------------------------------------------------------------------|
+| size_in              | Satuan dari key `size`.                                                                                       |
+| database             | Berisikan informasi database.                                                                                 |
+| database/ **name**   | Nama database.                                                                                                |
+| database/ **host**   | Host database.                                                                                                |
+| database/ **size**   | Jumlah data yang disimpan pada database dengan satuan `size_in`.                                              |
+| storage              | Berisikan informasi tempat penyimpanan file.                                                                  |
+| storage/ **online**  | Apakah storage yang digunakan online atau local.                                                              |
+| storage/ **name**    | Tempat penyimpanan file yang di-upload.                                                                       |
+| storage/ **size**    | Jumlah semua file yang sudah di-upload. Jika `online` berisi **FALSE**, maka nilai ini akan selalu **0**.     | 
