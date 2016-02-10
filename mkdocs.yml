@@ -17,10 +17,12 @@ pages:
         - Controller: api/controller.md
         - Storage: api/storage/storage.md
         - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.
-    - Custom View: developer/custom-view.md
+    - View:
+        - Custom View: developer/custom-view.md
+        - Inherit View: developer/inherit-view.md
+    - Model:
+        - Model Inheritance: developer/model-inheritance.md
     - Domain: developer/domain.md
-    - Model Inheritance: developer/model-inheritance.md
-    - Inherit View: developer/inherit-view.md
     - Versionning: developer/versioning.md
 - Module Release Notes:
     - Sales: modules/sales.md
