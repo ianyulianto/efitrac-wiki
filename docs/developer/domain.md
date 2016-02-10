@@ -79,9 +79,9 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 
 
 * current_user_id
->Untuk mendapatkan user id yang sedang login saat ini.
 
-Contoh :
+>Untuk mendapatkan user id yang sedang login saat ini.
+<br>Contoh :
 
 ```java
 "[('id','=','=current_user_id()')]"
@@ -90,8 +90,7 @@ Contoh :
 * str_to_date
 
 >Untuk mengubah inputan dari string menjadi date.
-
-Contoh :
+<br>Contoh :
 
 ```java
 "[('tanggal','=','=str_to_date()')]"
@@ -100,8 +99,7 @@ Contoh :
 * date_create(instance tanggal, tipe modifier, nilai modifier)
 
 >Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
-
-Contoh :
+<br>Contoh :
 
 ```java
 "[('tanggal','=','=date_create('now','sec',1)')]"
@@ -127,8 +125,7 @@ List value parameter 2
 * today
 
 >Untuk mendapatkan tanggal saat ini.
-
-Contoh :
+<br>Contoh :
 
 ```java
 "[('tanggal','=','=today()')]"
@@ -137,8 +134,7 @@ Contoh :
 * ref(...)
 
 >Untuk mendapatkan id dari data yang di definisikan di xml
-
-Contoh :
+<br>Contoh :
 
 ```java
 "[('id','=','=ref('module.record_name')')]"
@@ -150,16 +146,15 @@ TBD :
 * exec(jenis, nama model, nama fungsi)
 
 >Untuk mengeksekusi method yang ada pada sebuah model.
+<br>Contoh :
 
-Contoh :
-
-Pendefinisian domain 
+>Pendefinisian domain 
 
 ```xml
 "[('id','=','=exec('func','module.Model','getMyCustomFunc($parent_id)')')]"
 ```
 
-Pendefinisian fungsi
+>Pendefinisian fungsi
 
 ```java
 public Integer getMyCustomFunc(Integer parentId) {
