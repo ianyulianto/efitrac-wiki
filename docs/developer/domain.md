@@ -173,9 +173,6 @@ public Integer getMyCustomFunc(Integer parentId) {
     }
 ```
 
-TBD : 
-<br>- special parameter list ???(cth : $parent_id)
-
 ### eval
 
 >???
