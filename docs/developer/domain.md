@@ -180,13 +180,13 @@ public Integer getMyCustomFunc(Integer parentId) {
 TBD : 
 <br>- cari info lebih lanjut soal eval
 
-### Konversi dari penjabaran String ke List&lt;Object&gt;
+## Konversi dari penjabaran String ke List&lt;Object&gt;
 
 Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
 
-### Fitur khusus saat menggunakan domain dengan String pada XML untuk view
+## Fitur khusus saat menggunakan domain dengan String pada XML untuk view
 
-#### Parameter
+### Parameter
 
 Fungsi parameter digunakan untuk mengirimkan nilai dari form yang di buat ke domain, parameter di mulai dengan tanda "$" di ikuti dengan nama field yang ada pada model.
 
