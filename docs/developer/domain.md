@@ -162,7 +162,7 @@ TBD :
 >Pendefinisian fungsi
 
 ```java
-public Integer getMyCustomFunc(Integer parentId) {
+    public Integer getMyCustomFunc(Integer parentId) {
 
         Integer id;
 
@@ -173,7 +173,7 @@ public Integer getMyCustomFunc(Integer parentId) {
     }
 ```
 
->Return data type di sesuaikan dengan tipe data field di sisi kanan dan Leaf Operator-nya, contoh kalau Leaf Operatornya `in` maka menggunakan `List<...>`.
+>Return data type di sesuaikan dengan tipe data field di sisi kanan dan Leaf Operator-nya, contoh kalau Leaf Operatornya `in` maka menggunakan `List<...>` .
 
 ### eval
 
