@@ -1,7 +1,10 @@
 # Overview
 Domain adalah mekanisme dari efitrac untuk melakukan filterisasi data, query ke Database langsung di buat dari domain ini. terdapat 2 tipe domain pada efitrac yaitu domain yang dijabarkan dengan menggunakan String dan dijabarkan dengan menggunakan Java Object. Domain dapat di jabarkan saat melakukkan coding pada Java atau pada saat mendefinisikan Xml tampilan.
 
+Dalam sebuah domain terdapat `Leaf`, `Leaf` adalah sebuah kondisi perbandingan contoh `('id', '=', '1')` atau sebuah kondisi logika `'&'` , antara `Leaf` di pisahkan dengan sebuah tanda `,`.
+
 ---
+
 ## Cara Pembuatan Domain
 Cara pembuatan domain dengan String atau dengan Object agak berbeda, untuk Domain yang dijabarkan dengan menggunakan String di buat dengan menggunakan bantuan class Domain, untuk tipe Object sendiri cukup dengan menggunakan class List dan turunnannya. 
 
@@ -43,8 +46,10 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 |  |-| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
 | Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
 |  | "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
+## Operator 
+Operator adalah tanda operasi pembanding atau logika yang di sediakan untuk di pakai dalam pendefinisian domain, Operator pada domain ada 2 jenis Leaf operator dan Domain operator, Leaf Operator di gunakan untuk memberikan kondisi pembanding pada sebuah Leaf, dan Domain Operator di gunakan untuk memberikan kondisi yang menghubungkan antar Leaf.
+### Operator pembanding yang ada pada domain(Leaf Operator)
 
-### Operator yang ada pada domain
 
 | Nama Operator | Simbol Dari Operator |
 |--|--|
@@ -60,9 +65,9 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 | in | in |
 | between | between |
 
-### Operator kondisi yang ada pada domain
+### Operator kondisi yang ada pada domain(Domain Operator)
 
-| Nama Kondisi | Simbol Dari Kondisi |
+| Nama Operator | Simbol Dari Operator |
 |--|--|
 | and | & |
 | or | &#124; |
@@ -73,12 +78,12 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 TBD : <br>
 - Link ke dokumentasi AbstractModel.searchN
 
-### Fungsi-fungsi yang di sediakan pada domain
+## Fungsi-fungsi yang di sediakan pada domain
 
 Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari domain. berikut adalah fungsi-fungsi yang di support oleh domain :
 
 
-* current_user_id
+### current_user_id
 
 >Untuk mendapatkan user id yang sedang login saat ini.
 <br>Contoh :
@@ -87,7 +92,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 "[('id','=','=current_user_id()')]"
 ```
 
-* str_to_date
+### str_to_date
 
 >Untuk mengubah inputan dari string menjadi date.
 <br>Contoh :
@@ -95,8 +100,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 ```java
 "[('tanggal','=','=str_to_date()')]"
 ```
-
-* date_create(instance tanggal, tipe modifier, nilai modifier)
+### date_create(instance tanggal, tipe modifier, nilai modifier)
 
 >Membuat tanggal dan mengubah tanggal agar sessuai dengan kebutuhan.
 <br>Contoh :
@@ -122,7 +126,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 | time | ditambahkan dengan jam,menit,detik dengan format jam:menit:detik |
 
 
-* today
+### today
 
 >Untuk mendapatkan tanggal saat ini.
 <br>Contoh :
@@ -131,7 +135,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 "[('tanggal','=','=today()')]"
 ```
 
-* ref(...)
+### ref(...)
 
 >Untuk mendapatkan id dari data yang di definisikan di xml
 <br>Contoh :
@@ -143,7 +147,7 @@ Fungsi-fungsi bawaan di sediakan untuk membantu dan memperkuat kemampuan dari do
 TBD : 
 <br>- Kata-katanya rasanya masih kurang tepat
 
-* exec(jenis, nama model, nama fungsi)
+### exec(jenis, nama model, nama fungsi)
 
 >Untuk mengeksekusi method yang ada pada sebuah model.
 <br>Contoh :
@@ -168,7 +172,7 @@ public Integer getMyCustomFunc(Integer parentId) {
     }
 ```
 
-* eval
+### eval
 
 >???
 
