@@ -48,7 +48,7 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 |  | "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
 
 ## Operator 
-Operator adalah tanda operasi pembanding atau logika yang di sediakan untuk di pakai dalam pendefinisian domain, Operator pada domain ada 2 jenis Leaf operator dan Domain operator, Leaf Operator di gunakan untuk memberikan kondisi pembanding pada sebuah Leaf, dan Domain Operator di gunakan untuk memberikan kondisi yang menghubungkan antar Leaf.
+Operator adalah tanda operasi pembanding atau logika yang di sediakan untuk di pakai dalam pendefinisian domain, Operator pada domain ada 2 jenis Leaf operator dan Domain operator, Leaf Operator di gunakan untuk memberikan kondisi pembanding pada sebuah `Leaf`, dan Domain Operator di gunakan untuk memberikan kondisi yang menghubungkan antar `Leaf`.
 ### Operator pembanding yang ada pada domain(Leaf Operator)
 
 
@@ -182,7 +182,7 @@ TBD :
 
 ## Konversi dari penjabaran String ke List&lt;Object&gt;
 
-Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah "NExpression.toObjectList(String domain)" apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan "Domain.toObjectList()" secara langsung.
+Untuk menjembatani antara domain dengan representasi String atau Domain dapat menggunakan perintah `NExpression.toObjectList(String domain)` apabila ingin mengubah langsung dari String ke penjabaran tipe Object, apabila sudah dalam bentuk object Domain dapat menggunakan `Domain.toObjectList()` secara langsung.
 
 ## Fitur khusus saat menggunakan domain dengan String pada XML untuk view
 
