@@ -46,6 +46,7 @@ Terdapat tata cara yang perlu di perhatikan dalam mendefinisikan domain, dan ter
 |  |-| List&lt;Object&gt; list = new ArrayList<>();<br>list.add(&lt;start value&gt;);<br>list.add(&lt;end value&gt;);<br>new Object[]{"date","between", list};| 
 | Penjabaran fungsi | di mulai dengan '=' | di mulai dengan '=' |
 |  | "('user_id', '=', "=current_user_id()")" | new Object[]{"user_id","=", "=current_user_id()"};| 
+
 ## Operator 
 Operator adalah tanda operasi pembanding atau logika yang di sediakan untuk di pakai dalam pendefinisian domain, Operator pada domain ada 2 jenis Leaf operator dan Domain operator, Leaf Operator di gunakan untuk memberikan kondisi pembanding pada sebuah Leaf, dan Domain Operator di gunakan untuk memberikan kondisi yang menghubungkan antar Leaf.
 ### Operator pembanding yang ada pada domain(Leaf Operator)
