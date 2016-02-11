@@ -173,6 +173,8 @@ public Integer getMyCustomFunc(Integer parentId) {
     }
 ```
 
+>Return data type di sesuaikan dengan tipe data field di sisi kanan dan Leaf Operator-nya, contoh kalau Leaf Operatornya `in` maka menggunakan `List<...>`.
+
 ### eval
 
 >???
