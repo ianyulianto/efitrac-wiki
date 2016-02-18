@@ -9,7 +9,7 @@ Module adalah sebuah package yang berisi beberapa model dan saling berhubungan d
 
 1. Klik kanan parent project, dan pilih New > Module.
 
-![Create Module pada Project](img/module-create-01.PNG)
+![Create Module pada Project](img/module-create-01.png)
 
 2. Pilih maven >> Next.
 
@@ -48,7 +48,7 @@ Lalu pada daerah "Efitrac Module Block" tambahkan module lain yang akan diperluk
 
 Daftarkan module baru tersebut pada pom parent. Caranya: Pada tag modules pada bagian atas, tambahkan module baru tersebut.
 
-![Daftarkan module baru](img/module-create-02.PNG)
+![Daftarkan module baru](img/module-create-02.png)
 
 Daftarkan profile untuk test module yang baru
 
