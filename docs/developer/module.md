@@ -86,4 +86,4 @@ Langkah terakhir, daftarkan dependency di file pom.xml dengan menambahkan pada "
 	</dependency>
 ```
 
-<p style="font-size:18px;text-align:center"> Voila! Your new module looks awesome! </p>
+<p style="font-size:18px;text-align:center;font-weight:bold"> Voila! Your new module looks awesome! </p>
