@@ -3,7 +3,7 @@ Module adalah sebuah package yang berisi beberapa model dan saling berhubungan d
 
 ---
 
-## Step by step to create new module
+## Step by step to create new module use IntelliJ
 
 ### Buat module baru pada project
 
@@ -86,5 +86,4 @@ Langkah terakhir, daftarkan dependency di file pom.xml dengan menambahkan pada "
 	</dependency>
 ```
 
-
-## Voila! Your new module looks awesome!
+<p style="font-size:18px;text-align:center"> Voila! Your new module looks awesome! </p>
