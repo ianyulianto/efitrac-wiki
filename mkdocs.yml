@@ -21,6 +21,7 @@ pages:
     - View:
         - Custom View: developer/custom-view.md
         - Inherit View: developer/inherit-view.md        
+        - Multiple View: developer/multiple-view.md        
     - Model:
         - AbstractModel: developer/abstractmodel.md
         - Model Inheritance: developer/model-inheritance.md
