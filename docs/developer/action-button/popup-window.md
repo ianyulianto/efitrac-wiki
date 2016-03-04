@@ -32,7 +32,7 @@ Pada definisi sebelumnya attribute *name* berisi *my_action_button*, jadi pada j
 Isi dari function tersebut adalah sebagai berikut:
 
 ```java
-	public Action fo_folio_transaction_transfer_item(long uid, List ids, Map context) {
+	public Action my_action_button(long uid, List ids, Map context) {
 		...
 		ActionWindow action = new ActionWindow();
 		//action.viewId berisi record id dari view yang akan ditampilkan
