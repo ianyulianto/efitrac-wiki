@@ -41,8 +41,10 @@ Isi dari function tersebut adalah sebagai berikut:
 		action.resModel = "foo.dummy";
 		//action.context digunakan untuk mendefiniskan context yang akan digunakan untuk view yang akan ditampilkan
 		action.context = new HashMap<>();
+		//default_param_1 bisa digunakan untuk mengisikan default value
+		//formatnya adalah 'default_xxx'. xxx adalah nama field
 		action.context.put("default_param_1","test1");
-		action.context.put("default_param_2","test2");
+		action.context.put("other_param","test2");
 		...
 		return action;
 	}
