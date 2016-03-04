@@ -22,6 +22,8 @@ pages:
         - Custom View: developer/custom-view.md
         - Inherit View: developer/inherit-view.md        
         - Multiple View: developer/multiple-view.md        
+        - ActionButton : 
+            - PopUp Window : developer/action-button/popup-window.md        
     - Model:
         - AbstractModel: developer/abstractmodel.md
         - Model Inheritance: developer/model-inheritance.md
