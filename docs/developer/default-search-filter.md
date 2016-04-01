@@ -68,4 +68,4 @@ Pada contoh di atas, context berisi `search_default_date_filter` yang berhubunga
 
 Hasilnya, pada website akan muncul sebuah filter pada filterbox dan data terfilter sesuai filter tersebut.
 
-![Filter Domain Context](img/domain-context-filter.PNG)
+![Filter Domain Context](img/domain-context-filter.png)
