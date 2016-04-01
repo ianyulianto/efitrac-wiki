@@ -21,7 +21,8 @@ pages:
     - View:
         - Custom View: developer/custom-view.md
         - Inherit View: developer/inherit-view.md        
-        - Multiple View: developer/multiple-view.md        
+        - Multiple View: developer/multiple-view.md      
+        - Default Search Filter: developer/default-search-filter.md        
         - ActionButton : 
             - PopUp Window : developer/action-button/popup-window.md        
     - Model:
