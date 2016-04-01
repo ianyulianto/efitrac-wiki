@@ -44,6 +44,7 @@ dengan contoh seperti dibawah ini:
 Isi dari context tersebut harus mendefinisikan filter search mana yang akan diaktifkan secara default.
 Cara definisi untuk default filter adalah  `{"search_default_xxx": true}`. 
 `xxx` adalah nama field search yang akan diaktifkan secara default.
+
 Filter yang diaktifkan tersebut berasal dari sebuah record ir.ui.view dengan tag search pada contoh di bawah ini.
 
 ```xml
