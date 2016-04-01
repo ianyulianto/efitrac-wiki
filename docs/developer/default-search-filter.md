@@ -29,17 +29,7 @@ Hasilnya, pada website data terfilter sesuai domain tersebut.
 Cara untuk mendefinisikan default filter by context adalah dengan cara menambahkan sebuah field *context* pada ir.actions.act_window
 dengan contoh seperti dibawah ini:
 
-```xml
-	<record id="sale_today_visit_action" model="ir.actions.act_window">
-		<field name="name">Dummy Model</field>
-		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">dummy.model</field>
-		<field name="view_mode">tree,form</field>
-		<field name="context">
-            {"search_default_date_filter": true}
-        </field>
-	</record>
-```
+![Act Window](img/domain-context-filter-act_window.png)
 
 Isi dari context tersebut harus mendefinisikan filter search mana yang akan diaktifkan secara default.
 Cara definisi untuk default filter adalah  `{"search_default_xxx": true}`. 
@@ -47,23 +37,7 @@ Cara definisi untuk default filter adalah  `{"search_default_xxx": true}`.
 
 Filter yang diaktifkan tersebut berasal dari sebuah record ir.ui.view dengan tag search pada contoh di bawah ini.
 
-```xml
-	<record id="dummy_view" model="ir.ui.view">
-		<field name="name">dummy.model.search</field>
-		<field name="model">dummy.model</field>
-		<field name="arch" type="xml">
-			<search string="Search ">
-				<filter string="Quotations" name="state_filter" domain="[('state','in',['draft'])]"/>
-				<filter string="Now" name="date_filter" domain="[('date','=','=today()')]" help="Today Order"/>
-				<group expand="0" string="Group By">
-					<filter string="Salesman" domain="[]" context="{'group_by':'sales_id'}"/>
-					<filter string="Customer" domain="[]" context="{'group_by':'customer_id'}"/>
-					<filter string="Date" domain="[]" context="{'group_by':'date'}"/>
-				</group>
-			</search>
-		</field>
-	</record>
-```
+![View](img/domain-context-filter-view.png)
 
 Pada contoh di atas, context berisi `search_default_date_filter` yang berhubungan dengan field `date_filter`.
 
