@@ -17,17 +17,30 @@ pages:
         - Overview: api/overview.md
         - Controller: api/controller.md
         - Storage: api/storage/storage.md
-        - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.
-    - View:
-        - Custom View: developer/custom-view.md
-        - Inherit View: developer/inherit-view.md        
-        - Multiple View: developer/multiple-view.md      
-        - Default Search Filter: developer/default-search-filter.md        
-        - ActionButton : 
-            - PopUp Window : developer/action-button/popup-window.md        
+        - Logout: api/logout.md   # Logout selalu diletakkan di paling bawah.	
     - Model:
         - AbstractModel: developer/abstractmodel.md
-        - Model Inheritance: developer/model-inheritance.md
+    - Basic Views:
+        - Overview: developer/basic/overview.md
+        - Tree view: developer/basic/tree.md
+        - Form view: developer/basic/form.md
+        - Search view: developer/basic/search.md
+    - Advanced Views:
+        - Overview: developer/advanced/overview.md
+        - Tree view: developer/advanced/tree.md
+        - Search view: developer/advanced/form.md
+        - Kanban view: developer/advanced/kanban.md
+        - Graph view: developer/advanced/graph.md
+        - Gantt view: developer/advanced/gantt.md
+        - Calendar view: developer/advanced/calendar.md
+    - Custom View: developer/custom-view.md
+    - Multiple View: developer/multiple-view.md
+    - Inheritance:
+        - Model Inheritance: developer/inheritance/model-inheritance.md
+        - View Inheritance: developer/inheritance/view-inheritance.md
+    - Default Search Filter: developer/default-search-filter.md
+    - ActionButton:
+        - PopUp Window : developer/action-button/popup-window.md
     - Domain: developer/domain.md
     - Versioning: developer/versioning.md
 - Module Release Notes:
