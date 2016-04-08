@@ -25,6 +25,7 @@ pages:
         - Tree view: developer/basic/tree.md
         - Form view: developer/basic/form.md
         - Search view: developer/basic/search.md
+    - Basic Elements: developer/basic-elements.md
     - Advanced Views:
         - Overview: developer/advanced/overview.md
         - Tree view: developer/advanced/tree.md
