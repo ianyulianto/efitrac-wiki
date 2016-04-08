@@ -31,6 +31,7 @@ Attribute ini dimiliki baik element layout maupun element component. Macam-macam
     ```xml
     <button id="submit"/>
     ```
+	
     Attribute ini digunakan untuk memberikan *unique* id pada element. ID
     tersebut nantinya dapat digunakan untuk mengakses element bersangkutan.
 
@@ -47,6 +48,7 @@ Attribute ini dimiliki baik element layout maupun element component. Macam-macam
     ```xml
     <button icon-url="http://url_icon_here"/>
     ```
+	
     Attribute ini digunakan untuk memberikan icon pada element sesuai dengan
     url_icon_here yang diinputkan.
 
@@ -54,6 +56,7 @@ Attribute ini dimiliki baik element layout maupun element component. Macam-macam
     ```xml
     <button string="Cari Sekarang"/>
     ```
+	
     Attribute ini digunakan untuk memberikan caption pada element.
 	
 	
@@ -61,6 +64,7 @@ Attribute ini dimiliki baik element layout maupun element component. Macam-macam
     ```xml
     <field no_caption="true"/>
     ```
+	
     Bernilai ``True`` atau ``False``. Attribute ini mengatur apakah caption dari sebuah element dimunculkan apa tidak.
 
 ### `invisible`
