@@ -4,81 +4,111 @@ dalam sebuah sistem. ACL akan mengatur seorang user apakah diperbolehkan untuk
 membuka sebuah menu, membaca data yang ada, sampai mengganti sebuah nilai pada
 data yang sudah ada.
 
+> Perubahan ACL secara **live**, membutuhkan proses *re-log* (logout dan login)
+> agar ACL dapat terpasang.
+
 ---
 
-## Groups
-Di dalam Efitrac, seorang user bisa mempunyai satu atau beberapa *role* atau 
-jabatan yang disebut dengan **group(s)**. Group inilah nantinya yang memberikan
-sebuah relasi apakah user dengan group **X** boleh melihat data dari tabel 
-**A**, dan lain sebagainya.
+# Prerequisite
+Pada awalnya, ACL tidak dapat diubah maupun dilihat. Untuk menggunakan
+ACL secara penuh, dapat mengikuti cara seperti berikut,
 
-### Component of Groups
-Selain melekat pada user, group sendiri melekat di berbagai komponen pada 
-Efitrac. Berikut adalah daftar komponen yang mempunyai atribut group di 
-dalamnya:
+1. Masuk ke menu `Settings/Users/Users`.
+2. Pilih dan edit data dengan nilai Login adalah **admin**.
+3. Tambahkan nilai `Technical Features` pada bagian `Access Rights`.
+4. Simpan lalu lakukan logout serta login.
+5. ACL dapat dilihat dibagian menu Settings.
 
-* Users
-* Menus
-<!--- * Views --->
-* Access Rights
-<1--- * Rules --->
+ACL termasuk dalam kelompok 'Technical Features', sehingga siapa saja
+yang diberikan access ke kelompok tersebut dapat mengakses ACL. Dalam
+contoh di atas, yang diberi ijin adalah Administrator.
+ 
+---
 
-### Users
-Group dapat disamakan dengan jabatan dalam artian umum. Sehingga group mempunyai
-arti jabatan dari seorang user.
+# Groups
+
+ACL pada Efitrac dinamakan dengan **Groups**. Groups dapat dilihat pada
+menu `Settings/Users/Groups`. 
 
 ![Groups - Users](img/users.png)
 
-### Menus
-Dalam menu, group mempunyai tugas untuk menyeleksi apakah user boleh melihat
-menu ini atau tidak.
+## Application
+
+Input dengan label `Application` bertujuan untuk memberitahu apakah group
+ini berada di kategori module apa. Tidak ada tujuan lain selain hanya
+penanda atau label.
+
+## Users
+
+Bagian ini adalah daftar dari user yang termasuk dalam group.
+
+## Menus
+
+Di dalam pengaturan ini akan didefinisikan menu apa saja yang 
+diperbolehkan untuk dilihat oleh group. 
 
 ![Groups - Menus](img/menus.png)
-<!---
-### Views
-Views adalah tampilan yang disajikan kepada *end-user* sehingga dapat melihat
-data visualisasi dari sebuah tabel. Group di sini berperan menengahi apakah
-seorang user boleh untuk melihat view tersebut atau tidak.
---->
-### Access Rights
-Access Right mengacu proteksi pada data dari model. Proteksi yang diberikan 
-melingkupi empat pertanyaan, yaitu Apakah data boleh **dilihat**, **diubah**, 
-**dibuat baru**, dan **dihapus**.
-  
+
+Ada kondisi yang harus dipenuhi ketika membuka sebuah menu,
+
+1. Adanya menu yang berada di atas.
+2. Menu tujuan yang berada di sebelah kiri.
+
+Dengan memebuhi kondisi di atas, maka menu yang diharapkan
+muncul akan terlihat.
+
+## Access Rights
+
+Bagian ini akan mengatur tentang ijin untuk mengakses model.
+Terdapat empat pilihan, yaitu:
+
+1. **Read**: Group dapat membaca data dari model.
+2. **Write**: Group dapat mengubah nilai dari data yang sudah ada pada model.
+3. **Create**: Group dapat membuat data baru dari model.
+4. **Delete**: Group dapat menghapus data dari model.
+
 ![Groups - Access Rights](img/access-rights.png)
-<!---
-### Rules
-Mengacu pada data, rule memberikan penyaringan data kepada group agar dapat
-melihat data dengan spesifikasi tertentu dalam sebuah model atau tabel.
 
-*p.s. Rule sedang berada dalam proses pengembangan, sehingga fungsionalitasnya
-terbatas.*
---->
----
+![Groups - Read Access](img/read-access.png)
 
-## How To
-Untuk mengatur sekuritas Efitrac, seorang user harus mempunyai group yang 
-bernama **Technical Feature**. Pada awalnya, tidak ada user yang mempunyai 
-group ini, termasuk Administrator. 
+![Groups - Write Access](img/write-access.png)
 
-### Enable Technical Feature
-Untuk memberikan akses, silahkan mengikuti langkah-langkah yang ada pada gambar 
-berikut:
+![Groups - Create Access](img/create-access.png)
 
-![Enable-Technical-Feature](img/enable-technical-feature.png)
+## Rule
 
-Proses **Logout** dan **Login** ulang diperlukan untuk me-*refresh* data yang
-telah disimpan di dalam penyimpanan sementara atau sering disebut dengan
-**cache**, jika user tersebut adalah *active* user (user yang sedang login).
+Jika [Access Rights](#access-rights) mengatur tentang ijin akses model,
+Rule mengatur ijin tentang data yang ada pada model tersebut.
 
-Sampai dengan tahap ini, Anda sudah dapat mengatur sekuritas Efitrac sesuai
-dengan keinginan Anda.
+![Groups - Rules](img/Rules.jpeg)
+
+Untuk membuat Rules, dapat masuk dalam menu `Settings/Security/Record Rules`.
+Silahkan membaca tentang pembuatan data Rule di [link ini](#record-rules).
 
 ---
 
-## What Next?
-Untuk penjelasan lebih lanjut, silahkan kunjungi halaman 
-[Access Control List - Adv].
- 
-[Access Control List - Adv]: access-control-list-adv.md
+# Record Rules
+Sesuai dengan namanya, Record Rules akan mengatur ijin akses **data** yang ada dalam model.
 
+> Rule dibutuhkan pengetahuan tentang `domain` untuk melakukan
+> pembatasan data. Silahkan baca tentang `doamin` di [link berikut](/developer/domain/).
+
+![Groups - Rules](img/record-rules.jpeg)
+
+## Object
+Input `Object` berisikan **model** yang akan menjadi tujuan dari Record Rule.
+
+## Access Rights
+Terdapat empat pilihan dalam bagian ini, 
+
+1. Apply for Read: Rule akan mengatur data yang akan ditampilkan.
+2. Apply for Write: Rule akan mengatur data yang akan disimpan.
+3. Apply for Create: Rule akan mengatur data yang akan dibuat.
+4. Apply for Delete: Rule akan mengatur data yang akan dihapus.
+
+## Rule Definition (Domain Filter)
+Bagian ini adalah bagian yang menentukan filter yang dipakai dalam rule. Menggunakan
+fitur `domain` dalam pembuatannya.
+
+## Groups
+Daftar dari group yang mempunyai rule.

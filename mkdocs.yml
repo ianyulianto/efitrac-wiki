@@ -10,7 +10,6 @@ pages:
 - End User Guide:
     - Menu: enduser/menu.md
     - Access Control List (ACL): enduser/acl/access-control-list.md
-    - Access Control List - Adv: enduser/acl/access-control-list-adv.md
     - Dashboard View: enduser/dashboard-view.md
 - Developer:
     - API:
