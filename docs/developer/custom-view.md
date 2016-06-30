@@ -12,7 +12,7 @@ Class ini merupakan class induk untuk membuat tampilan custom view. Di dalam cla
 * getXMLNode : Digunakan untuk mendapatkan node xml dari view ini
 * getAttribute : Digunakan untuk mendapatkan attribute dari xml element untuk view ini
 
-## How to build custom view?
+## How to build a custom view?
 
 Untuk membuat sebuah custom view ada 2 langkah mudah yang harus dilakukan:
 
