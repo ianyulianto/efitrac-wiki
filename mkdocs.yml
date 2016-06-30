@@ -33,6 +33,7 @@ pages:
         - Graph view: developer/advanced/graph.md
         - Gantt view: developer/advanced/gantt.md
         - Calendar view: developer/advanced/calendar.md
+    - Custom Widget: developer/custom-widget.md
     - Custom View: developer/custom-view.md
     - Multiple View: developer/multiple-view.md
     - Inheritance:
